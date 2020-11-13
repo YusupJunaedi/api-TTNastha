@@ -13,6 +13,16 @@ const schedulesController = {
         formResponse.error(res, data);
       });
   },
+  postNewSchedule: (req, res) => {
+    schedulesModel
+      .postSchedule(req.body)
+      .then((data) => {
+        formResponse.succes(res, data);
+      })
+      .catch((err) => {
+        formResponse.error(res, err);
+      });
+  },
 };
 
 module.exports = schedulesController;
